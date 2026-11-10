@@ -1,39 +1,19 @@
 # Ideapad Toolkit
 
-**Ideapad Toolkit is a utility that allows you to adjust your Ideapad's power settings without installing Lenovo Vantage**
+**Ideapad Toolkit is a utility that allows you to adjust your Ideapad's power settings without installing Lenovo Vantage.**
 
-![Screenshot 2023-04-24 174110](https://user-images.githubusercontent.com/62750643/234048210-32a98b8a-7e24-4ba3-8990-a25ecdd8a2f9.png)
+This fork is based on [havlif/IdeapadToolkit](https://github.com/havlif/IdeapadToolkit) and is adapted specifically for **Lenovo IdeaPad S340-14API (81NB)**. Download the built application from the [GitHub Releases](https://github.com/itsmeyogs/IdeapadToolkit/releases) page.
+
+
+<img height="467" alt="image" src="https://github.com/user-attachments/assets/0b139e18-d1f3-4b67-a3bf-4ca0ffef39cc" /><br>
 
 **Power and charging profiles can be quickly adjusted from the tray icon**
 
-![Screenshot 2023-04-24 174631](https://user-images.githubusercontent.com/62750643/234049214-1324dc57-b3fd-4f8f-9fb0-8a419e2e9d32.png)
+<img height="180" alt="image" src="https://github.com/user-attachments/assets/27e79761-1922-4b73-901c-2668131689a2" />
+
+
 
 **After running, the app windows can be accessed by double clicking the tray icon**
-## Supported laptops
-| Laptop | Power Mode | Rapid charging | Conservation mode | Always on USB |
-| --- | --- | --- | --- | --- |
-| Ideapad Flex 5 14ALC05/15ALC05 (Windows 11) | ✅ | ✅ | ✅ | ✅ |
-| Ideapad 5 Pro 16ACH6 82L5 (Windows 10 22H2) - credits [@KatayR](https://github.com/KatayR) | ✅ | ✅ | ✅ | ✅ |
-| IdeaPad 5 Pro 16ARH7 - credits [@minbcrafter](https://github.com/minbcrafter) | ✅ | ✅ | ✅ | ✅ |
-| IdeaPad S540-14IML 81INF - thanks [@minbcrafter](https://github.com/minbcrafter) | ✅ | ✅ | ✅ | ✅ |
-| IdeaPad Pro 5 14APH8 - thanks [@Kondix10](https://github.com/Kondix10) | ✅ | ✅ | ✅ | ✅ |
-| IdeaPad Pro 5 14APH9 - thanks [@Che0063](https://github.com/Che0063) | ✅ | ✅ | ✅ | ✅ |
-| IdeaPad S340-15API - thanks [@ajayfaul](https://github.com/ajayfaul) | ✅ | ✅ | ✅ | ✅ |
-| IdeaPad Slim 7 15ITL05 - thanks [@Vitamoon](https://github.com/Vitamoon) | ✅ | ✅ | ✅ | ✅ |
-| IdeaPad Pro 5 16APH8 - thanks [@mooms06](https://github.com/mooms06) | ✅ | ✅ | ✅ | ✅ |
-| ThinkBook 16 G6 IRL - thanks [@PrizeWhipser](https://github.com/PrizeWhipser) | ✅ | ✅ | ✅ | ✅ |
-| ThinkBook 15 G3 ACL 21A4 - credits [@Flicker372](https://github.com/Flicker372) | ✅ | ✅ | ✅ | ✅ |
-| V14 G4 AMN - thanks [@blckbearx](https://github.com/blckbearx) | ✅ | ✅ | ✅ | ✅ |
-| Yoga C640-13IML - thanks [@Clancione](https://github.com/Clancione) | ✅ | ✅ | ✅ | ✅ |
-| IdeaPad S145-14IIL 81W6 - credits [@Antonomasia3](https://github.com/Antonomasia3) | ✅ | ❌ | ✅ | ❌ |
-| IdeaPad S145-14IWL - thanks [@Matee001](https://github.com/Matee001) |  ❌ | ❌ | ✅ | ❌ |
-| IdeaPad Z50-70 - credits [@Ozzypozzy](https://github.com/Ozzypozzy) | ❌ | ❌ | ✅ | ❌ |
-| Xiaoxin Pro-13 2020 - thanks [@BackMountainDevil](https://github.com/BackMountainDevil) | ✅ | ❌ | ✅ | ✅ |
-
-If you find your model is compatible and not on the list, please sumbit an issue
-
-To test, try changing the settings and verify if the settings change accordingly in Lenovo Vantage or the UEFI
-
 ## Prerequisites
 - [.NET 8 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-8.0.10-windows-x64-installer)
 
@@ -44,7 +24,39 @@ To test, try changing the settings and verify if the settings change accordingly
   - If not, install from here: [X64](https://aka.ms/vs/17/release/vc_redist.x64.exe) [X86](https://aka.ms/vs/17/release/vc_redist.x86.exe)
 
 - PowerBattery.dll
-  - This dll needs to be placed in the same directory as the executable
+  - The installer requires you to select this DLL before installation can finish.
+  - The DLL is not included in the installer and is copied only to the application directory.
+  - The DLL is never copied to `System32`.
+
+## Installation
+
+1. Download `IdeapadToolkit-Setup.exe` from [GitHub Releases](https://github.com/itsmeyogs/IdeapadToolkit/releases).
+2. Select the application installation directory.
+3. Read the `PowerBattery.dll` requirement page.
+4. Select your x64 `PowerBattery.dll` file.
+5. Continue to the Ready to Install page and finish setup.
+
+If you do not have the DLL, follow [How to get PowerBattery.dll](#how-to-get-powerbatterydll) first.
+
+## Manual build
+
+Manual builds require a local x64 DLL at:
+
+```text
+IdeapadToolkit\PowerBattery.dll
+```
+
+Build Release:
+
+```powershell
+dotnet build IdeapadToolkit.WinUI\IdeapadToolkit.WinUI3.csproj -c Release -p:Platform=x64
+```
+
+Compile the installer with Inno Setup:
+
+```powershell
+& "C:\Program Files\Inno Setup 7\ISCC.exe" installer\IdeapadToolkit.iss
+```
   
 ### How to get PowerBattery.dll
 - Method A
