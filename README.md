@@ -5,11 +5,13 @@
 This fork is based on [havlif/IdeapadToolkit](https://github.com/havlif/IdeapadToolkit) and is adapted specifically for **Lenovo IdeaPad S340-14API (81NB)**. Download the built application from the [GitHub Releases](https://github.com/itsmeyogs/IdeapadToolkit/releases) page.
 
 
-![Screenshot 2023-04-24 174110](https://user-images.githubusercontent.com/62750643/234048210-32a98b8a-7e24-4ba3-8990-a25ecdd8a2f9.png)
+<img height="467" alt="image" src="https://github.com/user-attachments/assets/0b139e18-d1f3-4b67-a3bf-4ca0ffef39cc" /><br>
 
 **Power and charging profiles can be quickly adjusted from the tray icon**
 
-![Screenshot 2023-04-24 174631](https://user-images.githubusercontent.com/62750643/234049214-1324dc57-b3fd-4f8f-9fb0-8a419e2e9d32.png)
+<img height="180" alt="image" src="https://github.com/user-attachments/assets/27e79761-1922-4b73-901c-2668131689a2" />
+
+
 
 **After running, the app windows can be accessed by double clicking the tray icon**
 ## Prerequisites
