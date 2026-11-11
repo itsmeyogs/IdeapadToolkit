@@ -17,7 +17,7 @@ This fork is based on [havlif/IdeapadToolkit](https://github.com/havlif/IdeapadT
 ## Prerequisites
 - [.NET 8 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-8.0.10-windows-x64-installer)
 
-- [Lenovo Intelligent Thermal Solution Driver](https://www.google.com/search?q=lenovo+<YOUR+MODEL>+intelligent+thermal+solution+driver+download)
+- [Lenovo Intelligent Thermal Solution Driver](https://support.lenovo.com/id/id/downloads/ds543701-intelligent-thermal-solution-its-driver-for-windows-10-64-bit-s340-15api-s340-15api-touch-s340-14api)
 
 - Visual C++ 2015 Runtime
   - This comes packed with most Windows software, so you most likely already have this.
